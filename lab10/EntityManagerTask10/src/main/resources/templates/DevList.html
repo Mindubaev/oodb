@@ -1,0 +1,50 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'></meta>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'></meta>
+    <title>Catalog</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'></meta>
+</head>
+<body>
+    <table style="border-spacing: 10px 7px">
+        <tr>
+            <td>
+                <form th:action="@{/devs}" method="GET">
+                    <input type="search" name="fullName"/>
+                    <input type="submit" value="Поиск"/>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>Id</span>
+            </td>
+            <td>
+                <span>ФИО</span>
+            </td>
+            <td>
+                <span>Дата рождения</span>
+            </td>
+            <td>
+                <span>Зарплата</span>
+            </td>
+        </tr>
+        <tr th:each="dev:${devs}">
+            <td>
+                <span th:text="${dev.id}">Id</span>
+            </td>
+            <td>
+                <span th:text="${dev.fullName}">ФИО</span>
+            </td>
+            <td>
+                <span th:text="${#dates.format(dev.birthDate,'dd-MMM-yyyy')}">Дата рождения</span>
+            </td>
+            <td>
+                <span th:text="${dev.salary}">Зарплата</span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
