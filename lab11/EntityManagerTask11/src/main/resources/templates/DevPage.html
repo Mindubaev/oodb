@@ -1,0 +1,51 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'></meta>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'></meta>
+    <title>Catalog</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'></meta>
+</head>
+<body>
+    <form th:object="${dev}" th:action="@{/dev}" method="POST">
+        <table style="border-spacing: 10px 7px">
+            <tr>
+                <td>
+                    <span>Полное имя</span>
+                </td>
+                <td>
+                    <input type="text" th:field="*{fullName}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Дата пождения</span>
+                </td>
+                <td>
+                    <input type="date" th:field="*{birthDate}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Зарплата</span>
+                </td>
+                <td>
+                    <input type="text" th:field="*{salary}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>TeamId</span>
+                </td>
+                <td>
+                    <input type="text" name="teamId"/>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Добавить"/></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
