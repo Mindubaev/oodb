@@ -29,6 +29,11 @@ public class DevController {
     @Autowired
     private TeamService teamService;
     
+    @GetMapping("")
+    public String getHomePage(){
+        return "home";
+    }
+    
     @GetMapping("/devs")
     public String getDevs(Model model,@RequestParam(name = "fullName",required = false) String fullName){
         List<Dev> devs=null;
